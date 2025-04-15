@@ -1,11 +1,14 @@
-package vacationCalculator.dto;
+package vacation.calculator.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
+@AllArgsConstructor
+@Getter
 public class VacationPayRequest {
 
     private BigDecimal avgSalary;
