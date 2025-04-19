@@ -42,15 +42,17 @@ public class VacationServiceImplTest {
     @Test
     void testPayCalculationExcludingAllNewYearsHolidays() {
 
+        int days = 10;
+
         VacationPayRequest request = new VacationPayRequest(
                 new BigDecimal(30000),
-                10,
+                days,
                 LocalDate.of(2023, 1, 1));
 
         VacationPayResponse response = vacationPayService.calculateVacationPay(request);
 
         assertEquals(
-                BigDecimal.valueOf(30000).multiply(BigDecimal.valueOf(2))
+                BigDecimal.valueOf(30000).multiply(BigDecimal.valueOf(days - 8))
                         .divide(AVG_DAYS_IN_MONTH,
                                 2,
                                 RoundingMode.HALF_UP),
